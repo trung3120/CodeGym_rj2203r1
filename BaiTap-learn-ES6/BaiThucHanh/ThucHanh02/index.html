@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaiThucHanh-ES6-02</title>
+</head>
+<body>
+    <script>
+        //Bai1: Đếm số ký tự của một chuỗi
+        let greetings = "Vì mình quá thích cậu rồi!! Phải làm sao phải làm sao??";
+        let char = [...greetings];
+        console.log(char.length);
+
+        //Bai2: Nối 2 mảng dữ liệu thành mảng mới
+        let blog1Subscribers = ['billy@example.com', 'sally@gmail.com'];
+        let blog2Subscribers = ['timmy@gmail.com', 'tammy@example.com', 'tommy@gmail.com'];
+        let subscribers = [...blog1Subscribers, ...blog2Subscribers];
+        console.log(subscribers);
+
+        const billing = { 
+            billingContact: '0987654321', 
+            billingAddress: 'Tran Hoanh, DaNang, VietNam' 
+        };
+        const shipping = { 
+            shippingContact: '0123456789', 
+            shippingAddress: 'Khue My, NguHanhSon, DaNang, VietNam' 
+        };
+        const custInfo = { ...billing, ...shipping };
+        console.log(custInfo);
+
+        //Bai3: Copy 2 mảng dữ liệu
+        let students = ['John', 'Sofia', 'Bob'];
+        let copy_students = students;
+        console.log(copy_students);
+        students.push('Sally'); // Change students
+        console.log(copy_students);
+
+    </script>
+</body>
+</html>

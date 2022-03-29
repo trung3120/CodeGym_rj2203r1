@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>BaiTap-ES6-02</title>
+</head>
+<body>
+    <script>
+        const animals = [
+            {
+                id: 1,
+                type: 'Động vật trên bờ',
+                name: 'Sư tử',
+            },
+            {
+                id: 2,
+                type: 'Động vật trên không',
+                name: 'Đại bàng',
+            },
+            {
+                id: 3,
+                type: 'Động vật dưới nước',
+                name: 'Cá mập',
+            },
+            {
+                id: 4,
+                type: 'Động vật trên bờ',
+                name: 'Báo đốm',
+            },
+            {
+                id: 5,
+                type: 'Động vật trên không',
+                name: 'Diều hâu',
+            },
+            {
+                id: 6,
+                type: 'Động vật dưới nước',
+                name: 'Cá nhà táng',
+            },
+        ];
+        
+        //Thêm động vật mới vào danh sách
+        const animalAdd = new Set(animals);
+        animalAdd.add(
+            {
+                id: 7,
+                type: 'Động vật trên không',
+                name: 'Chim ưng'
+            }
+        );
+        let newAnimals = [...animalAdd];
+        console.log("Sau khi thêm, tất cả động vật sở thú hiện có là: ");
+        console.log(newAnimals);
+
+        //Kiểm tra động vật có trong danh sách không
+        const animalTest = new Set(animals);
+        let isExist = (animal) => {
+            let checkExist = false;
+            animalTest.forEach(aniTest => {
+                if (aniTest.id == animal.id && aniTest.name == animal.name && aniTest.type == animal.type) {
+                    checkExist = true;
+                }
+            })
+            return checkExist;
+        }
+        console.log("Kết quả kiểm tra là: ");
+        console.log(isExist(         
+            {
+            id: 2,
+                type: 'Động vật trên không',
+                name: 'Đại bàng'
+            }
+        ));
+
+        //Xóa động vật ra khỏi danh sách
+        const animalDel = new Set(animals);
+        let deleteAnimalByName = (animal) => {
+            animalDel.forEach(delAni => {
+                if (delAni.name == animal) {
+                    animalDel.delete(delAni);
+                }
+            })
+        };
+
+        deleteAnimalByName("Cá nhà táng");
+        //Thêm nếu chưa có trong animals
+        let addIfNotExist = (animal) => {
+            if (!isExist(animal)) { // kiem tra xem da co trong zoo hay chua
+                animalAdd.add(animal); // add them vao zoo
+            }
+        }
+        addIfNotExist(            
+            {
+                id: 7,
+                type: 'Động vật trên không',
+                name: 'Chim ưng'                
+            }
+        );
+        let afterDel = [...animalDel];
+        console.log("Sau khi xóa, tất cả động vật sở thú hiện có là: ");
+        console.log(afterDel);
+
+        //In ra danh sách động vật hiện có
+        const animalAll = new Set(animalDel);
+        let all = [...animalAll]
+        console.log("Tất cả động vật sở thú hiện có là: ");
+        console.log(all);
+    </script>
+</body>
+</html>

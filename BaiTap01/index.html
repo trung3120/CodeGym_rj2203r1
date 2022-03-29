@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaiTap01 - Review</title>
+</head>
+<body>
+    <script>
+        class Shape {
+            constructor (color, filled = null) {
+                this.color = color;
+                this.filled = filled == null ? false : true;
+            }
+
+            say() {
+                console.log('Vì mình quá thích cậu rồi!! Phải làm sao phải làm sao??');
+                console.log('Cậu thấy vậy có được không??, phải làm sao phải làm sao??')
+            }
+
+            toString() {
+                return 'A Shape with color of' 
+                        + this.color 
+                        + ' and ' 
+                        + (this.filled ? 'filled' : 'not filled');
+            }
+        }
+
+        class Circle extends Shape {
+            constructor (color, filled, radius) {
+                super(color, filled);
+                this.radius = radius;
+            }
+
+            getArea(radius) {
+                return this.radius * this.radius * 3.14;
+            }
+
+            getPerimeter(radius) {
+                return this.radius * 2 * 3.14;
+            }
+
+            toString() {
+                return 'A Circle with radius =' 
+                        + this.radius 
+                        + ' , which is a subclass off ' 
+                        + super.toString()
+
+            }
+        }
+
+        class Rectangle extends Shape {
+            constructor (color, filled, width, length) {
+                super(color, filled);
+                this.width = width;
+                this.length = length;
+            }
+
+            getArea(width, length) {
+                return this.width * this.length
+            }
+
+            getPerimeter(width, length) {
+                return ( this.width + this.length ) * 2
+            }
+
+            toString() {
+                return 'A Rectangle with width =' 
+                        + this.width 
+                        + ' and length =' 
+                        + this.length 
+                        + ', which is a subclass of ' 
+                        + super.toString()
+            }
+        }
+
+        class Square extends Rectangle {
+            constructor (width, height) {
+                super(width);
+                this.height = height;
+            }
+
+            toString() {
+                return 'A Square with height =' 
+                        + this.height 
+                        + ', which is a subclass of ' 
+                        + super.toString()
+            }
+        }
+
+        let vd = new Shape();
+        vd.say();
+
+    </script>
+</body>
+</html>
