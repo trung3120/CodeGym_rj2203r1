@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaiThucHanh-01</title>
+</head>
+<body>
+    <script>
+        //Bai1
+        let greet = (name, callback) => {
+            console.log('Hi' + ' ' + name);
+            callback();
+        }
+
+        let callMe = () => {
+            console.log('I am callback function');
+        }
+
+        greet('Gnurtiw', callMe);
+
+        //Bai2
+        let sayHello = () => {
+            console.log('Hello World!!');
+        }
+
+        let sayName = (name) => {
+            console.log('Hello' + ' ' + name);
+        }
+
+        setTimeout(sayHello, 2000);
+        sayName('Gnurtiw');
+
+        //Bai3
+        let sayHi = (name, myFunction) => {
+            console.log('Xin chào cả nhà yêu của Kem!!!');
+            myFunction(name);
+        }
+
+        let sayMyName = (name) => {
+            console.log('Hello' + ' ' + name);
+        }
+
+        setTimeout(sayHi, 4000, 'Gnurtiw', sayMyName);
+    </script>
+</body>
+</html>

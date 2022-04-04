@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaiThucHanh-03</title>
+</head>
+<body>
+    <script>
+        //Bai1: Async Function
+        async function f() {
+            console.log('Async function');
+            return Promise.resolve(1);
+        }
+        f();
+
+        //Bai2: Chaining method()
+        async function f() {
+            console.log('Async function');
+            return Promise.resolve(1);
+        }
+        f().then(result => {
+            console.log(result);
+        })
+
+        //Bai3: Sử dụng Await với Async function
+            
+            //create a promise
+        let promise = new Promise( (resolve, reject) => {
+            setTimeout( () => {
+                resolve ('Promise resolved')
+            }, 4000);
+        });
+
+            //create async function
+        async function asyncFunc() {
+            let result = await promise;
+
+            console.log(result);
+            console.log('Hello Gnurtiw');
+        }
+
+            //call Async Function
+        asyncFunc();
+    </script>
+</body>
+</html>

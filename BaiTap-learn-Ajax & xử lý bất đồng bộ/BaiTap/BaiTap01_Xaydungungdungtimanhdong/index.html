@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BaiTap_01_Xây dựng ứng dụng tìm kiếm hình ảnh động</title>
+        <link rel="stylesheet" href="css.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>GIPHY PARTY</h1>
+            <div class="inputfiled">
+                <input
+                type="text"
+                name="search_string"
+                id="search_string"
+                placeholder="FIND WHAT?"
+                />
+                <button class="search_submit">Search</button>
+            </div>
+
+            <div class="output"></div>
+        </div>
+        <script>
+            var input = document.querySelector("input");
+            document.querySelector("button").addEventListener("click", (e) => {
+                getData(input.value);
+            });
+
+            function getData(input) {
+                var API_KEY = "PVbqvpVP1mITVSYWwgIMUkQx3ewRBgyJ";
+                var url =
+                "https://api.giphy.com/v1/gifs/search?q=" + input 
+                + "&api_key=" + API_KEY
+                + "&limit=1";
+                fetch(url)
+                    .then((response) => response.json())
+                    .then((data) => showData(data.data))
+                    .catch((e) => {
+                        console.log(e);
+                    });
+            }
+
+            function showData(data) {
+                data.forEach((element) => {
+                let src = element.images.fixed_height.url;
+                var output = document.querySelector(".output");
+                output.innerHTML += "<img src=" + src + " >";
+                });
+            }
+        </script>
+    </body>
+</html>

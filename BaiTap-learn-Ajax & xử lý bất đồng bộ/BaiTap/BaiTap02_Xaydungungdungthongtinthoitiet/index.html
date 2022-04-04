@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaiTap_02_Xây dựng ứng dụng thông tin thời tiết</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Current Weather</h1>
+        <div class="inputfiled">
+            <input
+            type="text"
+            name="search_string"
+            id="search_string"
+            placeholder="ENTER CITY NAME"
+            />
+            <button class="search_submit">Search</button>
+        </div>
+
+        <div class="output"></div>
+    </div>
+    <script>
+        var input = document.querySelector("input");
+        document.querySelector("button").addEventListener("click", (e) => {
+            getData(input.value);
+        });
+
+        function getData(input) {
+            var API_KEY = "763e2732acada50529c32bb0731bb880";
+            var url =
+            "https://api.openweathermap.org/data/2.5/weather?q=" + input + "&appid=" + API_KEY;
+            fetch(url)
+                .then((response) => response.json())
+                // .then((data) => showData(data))
+                .then(data => {
+                    var output = document.querySelector(".output");
+                    console.log(data);
+                    output.innerHTML = 
+                        "<h3>Nhiệt độ hiện tại của " + input + " là:</h3> <br>"
+                        + "Nhiệt độ là: " + (data.main.temp - 273.15) + " C <br>" 
+                        + "Thời tiết: " + data.weather[0].description + "<br>"
+                        + "Độ ẩm: " + data.main.humidity + "<br>"
+                        + "Áp suất: " + data.main.pressure + "<br>"
+                        + "Nhiệt độ cao nhất: " + (data.main.temp_max - 273.15) + " C <br>"
+                        + "Nhiệt độ thấp nhất: " + (data.main.temp_min - 273.15) + " C <br>";
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+        }
+    </script>
+</body>
+</html>

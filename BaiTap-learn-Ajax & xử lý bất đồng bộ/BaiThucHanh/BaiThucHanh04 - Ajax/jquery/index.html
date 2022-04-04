@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        let searchKey = 'foot';
+        let apiKey = 'OaI8Scqh6gxKwYuB0TXRiZxeyTICIFcX';
+        let apiUrl = 'http://api.giphy.com/v' + 1 + '/gifs/search';
+
+        requestData = () => {
+            let request = $.ajax({
+                url: apiUrl,
+                method: 'GET',
+                data: { q: searchKey, api_key: apiKey},
+                dataType: 'json'
+            });
+            request.done(resutl => {
+                console.log(resutl.data);
+            })
+            request.fail(error => {
+                console.log(error);
+            })
+        }
+        requestData();
+    </script>
+</body>
+</html>

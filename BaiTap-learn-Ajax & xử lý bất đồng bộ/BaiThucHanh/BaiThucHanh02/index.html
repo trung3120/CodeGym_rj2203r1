@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaiThucHanh-02</title>
+</head>
+<body>
+    <script>
+        //Bai1
+        const count = true;
+
+        let countValue1 = new Promise((resolve, reject) => {
+            if (count) {
+                resolve ("There is a count value.");
+            } else 
+                reject ("There is no count value.");
+            
+        });
+
+        console.log(countValue1);
+
+        //Bai2
+        let countValue2 = new Promise((resolve, reject) => {
+            resolve("Promise resolved");
+        });
+
+        countValue2
+            .then(successValue = (result) => {
+                console.log(result);
+            })
+
+            .then(successValue1 = () => {
+                console.log("You can call multiple functions this way.")
+            })
+
+        //Bai3
+        let countValue3 = new Promise((resolve, reject) => {
+            resolve("Promise resolved");
+        });
+
+        countValue3.then(
+            successValue = (result) => {
+                console.log(result);
+            }, 
+        ).catch(
+            errorValue = (result) => {
+                console.log(result);
+            }
+        )
+    </script>
+</body>
+</html>

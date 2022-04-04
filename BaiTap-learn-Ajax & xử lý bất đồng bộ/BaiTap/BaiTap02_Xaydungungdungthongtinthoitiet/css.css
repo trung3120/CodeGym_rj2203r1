@@ -1,0 +1,45 @@
+.container {
+    text-align: center;
+    background-color: rgb(68, 59, 59);
+}
+
+h1 {
+    color: white;
+}
+
+.search_submit {
+    border: 1px solid wheat;
+    border-radius: 5px;
+    background: wheat;
+    color: red;
+    height: 35px;
+    width: 100px;
+    margin-left: 50px;
+}
+
+#search_string {
+    border: 1px solid wheat;
+    color: black;
+    border-radius: 5px;
+    height: 30px;
+    width: 300px;
+}
+
+img {
+    margin: 3px;
+  }
+
+.inputfiled {
+    padding: 20px;
+}
+
+.output {
+    color: white;
+    background-color: rgb(87, 150, 158);
+    height: 250px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.output > h3 {
+    padding-top: 30px;
+}
