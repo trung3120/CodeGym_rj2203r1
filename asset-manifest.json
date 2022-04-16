@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/trung3120/CodeGym_rj2203r1/static/css/main.c7c1bc2f.css",
+    "main.js": "/trung3120/CodeGym_rj2203r1/static/js/main.78db1dfe.js",
+    "static/js/787.91254a9e.chunk.js": "/trung3120/CodeGym_rj2203r1/static/js/787.91254a9e.chunk.js",
+    "static/media/logo.svg": "/trung3120/CodeGym_rj2203r1/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/trung3120/CodeGym_rj2203r1/index.html",
+    "main.c7c1bc2f.css.map": "/trung3120/CodeGym_rj2203r1/static/css/main.c7c1bc2f.css.map",
+    "main.78db1dfe.js.map": "/trung3120/CodeGym_rj2203r1/static/js/main.78db1dfe.js.map",
+    "787.91254a9e.chunk.js.map": "/trung3120/CodeGym_rj2203r1/static/js/787.91254a9e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c7c1bc2f.css",
+    "static/js/main.78db1dfe.js"
+  ]
+}
