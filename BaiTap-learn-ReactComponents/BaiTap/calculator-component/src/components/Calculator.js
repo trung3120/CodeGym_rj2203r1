@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import Button from './Button';
 import "bootstrap/dist/css/bootstrap.css";
 
 class Calculator extends Component {
@@ -15,33 +14,30 @@ class Calculator extends Component {
 
     calculate = (operator) => {
         switch (operator) {
-            case "+": this.setState({ 
-                displayValue: parseFloat(this.state.firstNum) + parseFloat(this.state.secondNum) 
-                      }); 
+            case 0: this.setState({ 
+                        displayValue: parseFloat(this.state.firstNum) + parseFloat(this.state.secondNum) 
+                    }); 
                     break;
-            case "-": this.setState({ 
-                displayValue: parseFloat(this.state.firstNum) - parseFloat(this.state.secondNum) 
-                      }); 
+            case 1: this.setState({ 
+                        displayValue: parseFloat(this.state.firstNum) - parseFloat(this.state.secondNum) 
+                    }); 
                     break;
-            case "*": this.setState({ 
-                displayValue: parseFloat(this.state.firstNum) * parseFloat(this.state.secondNum) 
-                      }); 
+            case 2: this.setState({ 
+                        displayValue: parseFloat(this.state.firstNum) * parseFloat(this.state.secondNum) 
+                    }); 
                     break;
-            case "/": this.setState({ 
-                displayValue: parseFloat(this.state.firstNum) / parseFloat(this.state.secondNum) 
-                      }); 
+            case 3: this.setState({ 
+                        displayValue: parseFloat(this.state.firstNum) / parseFloat(this.state.secondNum) 
+                    }); 
                     break;
-            default: this.setState({ 
-                displayValue: "Invalid input" 
-                      }); 
-            break;
         }
     }
 
     render() {
         return (
-            <div className='calculator container mt-4 border border-secondary'>
+            <div className='container mt-4 border border-secondary'>
                 <div className=''>
+                    <h1>Calculator</h1>
                     <input className='ml-4 mt-3 w-50' 
                             type="number" 
                             onChange={(e) => { 
@@ -49,7 +45,7 @@ class Calculator extends Component {
                                     firstNum: e.target.value 
                                 }) 
                             }} 
-                            placeholder="Enter the first number" 
+                            placeholder="First number" 
                     />
                     <input className='mt-1 ml-4 w-50' 
                             type="number" 
@@ -58,22 +54,36 @@ class Calculator extends Component {
                                     secondNum: e.target.value 
                                 }) 
                             }} 
-                            placeholder="Enter the second number" 
+                            placeholder="Second number" 
                     />
                 </div>
                 <div className='m-2 ml-4'>
-                    <Button className="btn btn-outline-secondary" onClick={(e) => { 
-                        this.calculate("+") }} label='+'>
-                    </Button>
-                    <Button className="btn btn-outline-secondary ml-3" onClick={(e) => { 
-                        this.calculate("-") }} label='-'>
-                    </Button>
-                    <Button className="btn btn-outline-secondary ml-3" onClick={(e) => { 
-                        this.calculate("*") }} label='*'>
-                    </Button>
-                    <Button className="btn btn-outline-secondary ml-3" onClick={(e) => { 
-                        this.calculate("/") }} label='/'>
-                    </Button> 
+                    <button className="btn btn-outline-secondary"
+                            onClick={(e) => { 
+                                this.calculate(0) 
+                            }}
+                    > +
+                    </button>
+                    <button className="btn btn-outline-secondary ml-3"
+                            onClick={(e) => { 
+                                this.calculate(1) 
+                            }}
+                    > -
+                    </button>
+                    <button className="btn btn-outline-secondary ml-3"
+                            value='*'
+                            onClick={(e) => { 
+                                this.calculate(2) 
+                            }}
+                    > *
+                    </button>
+                    <button className="btn btn-outline-secondary ml-3" 
+                            value='/' 
+                            onClick={(e) => { 
+                                this.calculate(3) 
+                            }}
+                    > /
+                    </button>
                 </div>
                 <div className='ml-4'>
                     <h3>Result: {this.state.displayValue}</h3>  

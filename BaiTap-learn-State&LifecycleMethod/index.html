@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Assignment-1</title>
+</head>
+<style>
+    input {
+        width: 200px;
+        margin-top: 10px;
+    }
+    .rank {
+        height: 20px;
+        width: 205px;
+        border: 1px solid black;
+        margin-top: 10px;
+    }
+    #dtb {
+        width: 105px;
+    }
+</style>
+<body>
+    <div class="Bai2">
+        <h2>Bai2:</h2>
+        <div>
+            Điểm môn 1: 
+            <input 
+                type="number" 
+                min="0" max="10" 
+                id="diemtoan" 
+                placeholder="Nhập vào điểm môn toán"
+            /><br>
+            Điểm môn 2: 
+            <input 
+                type="number" 
+                min="0" max="10" 
+                id="diemly" 
+                placeholder="Nhập vào điểm môn Lý"
+            /><br>
+            Điểm môn 3: 
+            <input 
+                type="number" 
+                min="0" max="10" 
+                id="diemhoa" 
+                placeholder="Nhập vào điểm môn Hóa"
+            /><br>
+            Điểm trung binh của bạn là: 
+            <input 
+                type='text' 
+                value="" 
+                name='dtb' 
+                id='dtb'
+            />
+            <div class="rank">
+                <label  id='rank'></label>
+            </div>
+        </div>
+        <div>
+            <input type="button" value='Xếp loại' name="btnXeploai" id='btnXeploai' onclick="dtb.value=gba()" />
+        </div>
+    </div>
+    <div class="Bai3">
+        <h2>Bai3</h2>
+        <form>
+            Nhập a: 
+            <input type="number" id="a"><br/>
+            Nhập b:
+            <input type="number" id="b"><br/>
+            <input type="button" id="giai" value="Tìm x...">
+        </form>
+    </div>
+    <div class="Bai4">
+        <h2>Bai4</h2>
+        <form>
+            Nhập a: 
+            <input type="number" id="aa"><br/>
+            Nhập b:
+            <input type="number" id="bb"><br/>
+            Nhập c:
+            <input type="number" id="cc"><br/>
+            <input type="button" id="giaibac2" value="Tìm x...">
+        </form>
+    </div>
+    <script>
+        //Bai1
+            var a = 15, b =20, c;
+            console.log("//Bai 1")
+            console.log('Before swap value of a and b is: ' 
+                        + 'a = ' + a 
+                        + ', ' 
+                        + 'b = ' + b);
+            c = a;
+            a = b;
+            b = c;
+            console.log('After swap value of a and b is: ' 
+                        + 'a = ' + a 
+                        + ', ' 
+                        + 'b = ' + b);
+
+        //Bai2
+            gba = () => {
+                let toan = document.getElementById('diemtoan');
+                let ly = document.getElementById('diemly');
+                let hoa = document.getElementById('diemhoa');
+
+                let dtb = document.getElementById('dtb');
+                dtb = ((
+                        parseFloat(toan.value) 
+                        + 
+                        parseFloat(ly.value) 
+                        + 
+                        parseFloat(hoa.value)
+                    ) / 3);
+                let dtbfix = dtb.toFixed(2);
+                let rank = document.getElementById('rank');
+                if (dtbfix >= 8) {
+                    rank.innerText = 'A';
+                }
+                else if (dtbfix >= 6.5) {
+                    rank.innerText = 'B';
+                }
+                else if (dtbfix >= 5) {
+                    rank.innerText = 'C';
+                }
+                else rank.innerText = 'D';
+                return dtbfix;
+            }
+
+        //Bai3: 
+            let giai = document.getElementById('giai');
+
+            giai.onclick = () => {
+                let a = document.getElementById('a').value;
+                let b = document.getElementById('b').value;
+
+                if (a == "" || b == "") {
+                    alert('Nhập a b!!!');
+                } else {
+                    ptbacnhat(a, b);
+                }
+
+            }
+            
+            ptbacnhat = (a, b) => {
+                if (a == 0 && b == 0) {
+                    console.log('//Bai 3');
+                    console.log('Phương trình vô số nghiệm!!');
+                } else if (a != 0 && b == 0) {
+                    console.log('//Bai 3');
+                    console.log('Phương trình có nghiệm x = 0');
+                } else if (a == 0 && b != 0) {
+                    console.log('//Bai 3');
+                    console.log('Phương trình vô nghiệm!!');
+                } else {
+                    console.log('//Bai 3');
+                    console.log('Phương trình có nghiệm x = ' + (-b/a));
+                }
+            }
+
+
+        //Bai4: 
+            let giaibac2 = document.getElementById('giaibac2');
+
+            giaibac2.onclick = () => {
+                let aa = document.getElementById('aa').value;
+                let bb = document.getElementById('bb').value;
+                let cc = document.getElementById('cc').value;
+
+                if (aa == "" || bb == "" || cc == "") {
+                    alert('Nhập a b c!!!');
+                } else {
+                    ptbac2(aa, bb, cc);
+                }
+
+            }
+
+            ptbac2 = (aa, bb, cc) => {
+                let delta;
+                delta = (bb * bb) - (4 * aa * cc); 
+                if (aa == 0) {
+                    if (bb == 0) {
+                        if (cc != 0) {
+                            console.log('//Bai 4');
+                            console.log('Vô lí!!');
+                        }
+                        else {
+                            console.log('//Bai 4');
+                            console.log('PHương trình có vô số nghiệm!!');
+                        }
+                    } else {
+                        console.log('//Bai 4');
+                        console.log('Nghiệm của x là: ' + (-cc/bb));
+                    }
+                } 
+               else if (delta > 0) {
+                    console.log('//Bai 4');
+                    console.log('Phương trình có nghiệm x1 là: ' + ((-bb + Math.sqrt(delta)) / (2 * aa)));
+                    console.log('Phương trình có nghiệm x2 là: ' + ((-bb - Math.sqrt(delta)) / (2 * aa)));
+                } else if (delta = 0) {
+                    console.log('//Bai 4');
+                    console.log('Phương trình có nghiệm kép x1=x2 là: ' + (-bb / (2 * aa)));
+                } else if (delta < 0) {
+                    console.log('//Bai 4');
+                    console.log('Phương trình vô nghiệm!!!');
+                }
+            }
+        
+        //Bai5:
+            var n =97;
+            // n = parseInt(prompt('Nhập số cần kiểm tra!!!'))
+            tinh_tong = (n) => {
+                var tong = 0, index = 0;
+                while (index <= n) {
+                    if (index % 2 != 0 || index == 2) {
+                        tong += index;
+                    }
+                    index++;
+                }
+                return tong;
+            }
+            console.log('//Bai 5');
+            console.log('Tổng của 50 số nguyên đầu tiên là: ' + tinh_tong(n));
+
+        //Bai6:
+            var number = 5000; 
+            // number = parseInt(prompt('Nhập vào 1 số!!!'));
+            var n1 = 0, n2 = 1, nextTerm;
+            console.log('//Bai 6')
+            console.log('Fibonacci Series: ');
+            console.log(n1);
+            console.log(n2);
+            nextTerm = n1 + n2;
+            while (nextTerm <= number) {
+                console.log(nextTerm)
+                n1 = n2;
+                n2 = nextTerm;
+                nextTerm = n1 + n2;
+            }
+
+
+
+    </script>
+</body>
+</html>
