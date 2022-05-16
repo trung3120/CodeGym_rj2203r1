@@ -1,0 +1,100 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+* {
+  position: relative;
+  color: #282c34;
+}
+
+.login {
+  border: 3px solid #f1f1f1;
+  width: 40rem;
+  padding: 3rem;
+  position: absolute;
+  left: 25%;
+  top: 5rem;
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+}
+
+label {
+  display: block;
+  margin-top: 1.5rem;
+}
+
+input[type=email], input[type=password] {
+  padding: 15px 20px;
+  margin: 1rem 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 40rem;
+  background-color: #E7EFFF;
+}
+
+input[type=submit] {
+  width: 100px;
+  font-size: 20px;
+  border: none;
+  height: 3rem;
+  color: #282c34;
+  background-color: #E7EFFF;
+  border-radius: 10px;
+  margin-top: 1rem;
+  margin-left: 42%;
+}
+
+.homepage {
+  border: 3px solid #f1f1f1;
+  width: 30rem;
+  padding: 3rem;
+  position: absolute;
+  left: 30%;
+  top: 5rem;
+}
+
+.homepage li {
+  margin-left: 7rem;
+  list-style: none;
+  line-height: 3rem;
+}
